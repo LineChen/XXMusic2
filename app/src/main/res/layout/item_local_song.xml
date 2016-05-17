@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2dp" 
+     android:gravity="center_vertical" >
+
+    <CheckBox
+        android:id="@+id/item_local_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/item_local_tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:text="00:00" />
+
+    <TextView
+        android:id="@+id/item_local_tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/item_local_tvTime"
+        android:layout_toRightOf="@id/item_local_cb"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="小熊音乐"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/item_local_tvArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_local_tvName"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/item_local_cb"
+        android:textSize="15sp"
+        android:text="追求极致" />
+
+</RelativeLayout>

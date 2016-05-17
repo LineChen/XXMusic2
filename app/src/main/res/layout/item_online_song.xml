@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical" 
+    android:padding="5dp"
+    android:descendantFocusability="blocksDescendants"
+    >
+
+    <ImageView
+        android:id="@+id/item_online_head"
+        android:layout_width="60dp"
+        android:layout_height="55dp"
+        android:src="@drawable/default_img"
+        android:layout_marginRight="5dp" />
+    
+    <ImageView
+        android:id="@+id/item_online_listen"
+         android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+         android:background="@null"
+         android:focusable="false"
+        android:layout_marginLeft="3dp"
+        />
+    
+     <ImageView 
+        android:id="@+id/item_online_download"
+        android:layout_below="@id/item_online_listen"
+         android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:focusable="false"
+        android:layout_marginLeft="3dp"
+        />
+
+    <TextView
+        android:id="@+id/item_online_name"
+        android:layout_toRightOf="@id/item_online_head"
+        android:layout_toLeftOf="@id/item_online_listen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:text="十年" />
+    
+    <TextView
+        android:id="@+id/item_online_artist"
+        android:layout_toRightOf="@id/item_online_head"
+         android:layout_toLeftOf="@id/item_online_listen"
+        android:layout_below="@id/item_online_name"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="15sp"
+        android:text="十年" />
+
+</RelativeLayout>
+
+
+
