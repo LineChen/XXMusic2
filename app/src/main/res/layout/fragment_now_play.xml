@@ -52,7 +52,8 @@
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/btn_play" />
+            android:background="@drawable/btn_play"
+            android:visibility="gone"/>
 
         <ImageButton
             android:id="@+id/fnp_contral_prev"

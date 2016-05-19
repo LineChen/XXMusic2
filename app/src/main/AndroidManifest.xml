@@ -18,6 +18,8 @@
         </activity>
 
         <activity android:name=".OnlineSongListActivity"/>
+
+        <service android:name="com.beiing.xiaoxiongmusic.service.XxMusicService"/>
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
