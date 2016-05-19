@@ -11,7 +11,7 @@ import android.app.Application;
 import android.content.Context;
 
 /**
- * ¶¨ÒåÈ«¾Ö±äÁ¿
+ * ï¿½ï¿½ï¿½ï¿½È«ï¿½Ö±ï¿½ï¿½ï¿½
  * @author Administrator
  *
  */
@@ -19,15 +19,12 @@ public class XxMusicApplication extends Application {
 	
 	private static Context context;
 	
-	private static BitmapCache bitmapCache;//Î¬»¤Ò»¸öÈ«¾Ö»º´æ
+	private static BitmapCache bitmapCache;//Î¬ï¿½ï¿½Ò»ï¿½ï¿½È«ï¿½Ö»ï¿½ï¿½ï¿½
 	
-	/**
-	 * Î¬»¤Ò»¸ö¸èÇú²¥·Å¶ÓÁÐ£¬
-	 */
 	private static Queue<SongDetail> musicQueue;
 	
 	/**
-	 * ¶ÓÁÐ×î´ósize
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½size
 	 */
 	private int MAX_SIZE = 40;
 	
@@ -41,7 +38,7 @@ public class XxMusicApplication extends Application {
 	}
 	
 	/**
-	 * °ÑÒ»Ê×¸è¼ÓÈëµ½¶ÓÁÐÖÐ
+	 * ï¿½ï¿½Ò»ï¿½×¸ï¿½ï¿½ï¿½ëµ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param detail
 	 * @return
 	 */

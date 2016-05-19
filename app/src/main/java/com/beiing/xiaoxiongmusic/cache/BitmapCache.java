@@ -9,19 +9,19 @@ import android.util.LruCache;
 @SuppressLint("NewApi")
 public class BitmapCache {
 	/**
-	 * Í¼Æ¬»º´æ¼¼ÊõµÄºËĞÄÀà£¬ÓÃÓÚ»º´æËùÓĞÏÂÔØºÃµÄÍ¼Æ¬£¬ÔÚ³ÌĞòÄÚ´æ´ïµ½Éè¶¨ÖµÊ±»á½«×îÉÙ×î½üÊ¹ÓÃµÄÍ¼Æ¬ÒÆ³ıµô¡£
+	 * Í¼Æ¬ï¿½ï¿½ï¿½æ¼¼ï¿½ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½à£¬ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ØºÃµï¿½Í¼Æ¬ï¿½ï¿½ï¿½Ú³ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ïµ½ï¿½è¶¨ÖµÊ±ï¿½á½«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ãµï¿½Í¼Æ¬ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	private LruCache<String, Bitmap> mMemoryCache;
 	
 	/**
-	 * ¸ù¾İÊµ¼ÊÍ¼Æ¬´óĞ¡Ñ¡ÔñºÏÊÊµÄ»º´æ
+	 * ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ğ¡Ñ¡ï¿½ï¿½ï¿½ï¿½ÊµÄ»ï¿½ï¿½ï¿½
 	 */
-	private int CACHE_MAX_SIZE = 1024 * 1024 * 4;//5m--ºÜºÏÊÊ
+	private int CACHE_MAX_SIZE = 1024 * 1024 * 4;//5m--ï¿½Üºï¿½ï¿½ï¿½
 
 	public BitmapCache() {
-		// »ñÈ¡Ó¦ÓÃ³ÌĞò×î´ó¿ÉÓÃÄÚ´æ
-		int maxMemory = (int) Runtime.getRuntime().maxMemory();// ÓÃmaxMemory»º´æ±È½Ï´ó£¬¿ÉÒÔ¼õÉÙ´ÓÍøÂçÏÂÔØ´ÎÊı
-		int cacheSize = maxMemory / 10;//´óÔ¼1.3m
+		// ï¿½ï¿½È¡Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
+		int maxMemory = (int) Runtime.getRuntime().maxMemory();// ï¿½ï¿½maxMemoryï¿½ï¿½ï¿½ï¿½È½Ï´ó£¬¿ï¿½ï¿½Ô¼ï¿½ï¿½Ù´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½
+		int cacheSize = maxMemory / 10;//ï¿½ï¿½Ô¼1.3m
 //		Log.i("--", "===============cacheSize = " + cacheSize);
 		mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
 			@Override
@@ -33,12 +33,11 @@ public class BitmapCache {
 	}
 
 	/**
-	 * ½«Ò»ÕÅÍ¼Æ¬´æ´¢µ½LruCacheÖĞ¡£
+	 * ï¿½ï¿½Ò»ï¿½ï¿½Í¼Æ¬ï¿½æ´¢ï¿½ï¿½LruCacheï¿½Ğ¡ï¿½
 	 * 
 	 * @param key
-	 *            LruCacheµÄ¼ü£¬ÕâÀï´«ÈëÍ¼Æ¬µÄURLµØÖ·¡£
-	 * @param drawable
-	 *            LruCacheµÄÖµ£¬ÕâÀï´«Èë´ÓÍøÂçÉÏÏÂÔØµÄBitmapDrawable¶ÔÏó¡£
+	 *            LruCacheï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï´«ï¿½ï¿½Í¼Æ¬ï¿½ï¿½URLï¿½ï¿½Ö·ï¿½ï¿½
+	 *            LruCacheï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï´«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½BitmapDrawableï¿½ï¿½ï¿½ï¿½
 	 */
 	public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
 		if (getBitmapFromMemoryCache(key) == null) {

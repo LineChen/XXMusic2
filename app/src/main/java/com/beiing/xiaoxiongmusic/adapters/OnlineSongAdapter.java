@@ -10,6 +10,7 @@ import com.beiing.xiaoxiongmusic.asynktasks.ImageLoadAsyncTask.LoadImageListner;
 import com.beiing.xiaoxiongmusic.entities.SongBrief;
 import com.beiing.xiaoxiongmusic.utils.FileUtil;
 import com.beiing.xxmusic.R;
+import com.bumptech.glide.Glide;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -83,32 +84,7 @@ public class OnlineSongAdapter extends BaseAdapter {
 		holder.headIv.setImageResource(R.drawable.default_img);
 		final String imgurl = brief.getThumb();
 		if (imgurl != null) {
-			holder.headIv.setTag(imgurl);
-			Bitmap bitmap = XxMusicApplication.getBitMapCache()
-					.getBitmapFromMemoryCache(imgurl);
-			if (bitmap == null) {
-				bitmap = FileUtil.readImage(imgurl);
-				if (bitmap == null){
-					new ImageLoadAsyncTask(new LoadImageListner() {
-						@Override
-						public void imageLoadSuccess(Bitmap bitmap) {
-							ImageView head = (ImageView) listView
-									.findViewWithTag(imgurl);
-							if (head != null)
-								head.setImageBitmap(bitmap);
-							// ���浽��չ��
-							try {
-								// ѹ������
-								FileUtil.saveImage(imgurl, bitmap,
-										FileUtil.FORMAT_PNG, 100, 100);
-							} catch (FileNotFoundException e) {
-								e.printStackTrace();
-							}
-						}
-					}).execute(imgurl);
-				}
-			}else
-				holder.headIv.setImageBitmap(bitmap);
+			Glide.with(context).load(imgurl).into(holder.headIv);
 		}
 
 		return convertView;

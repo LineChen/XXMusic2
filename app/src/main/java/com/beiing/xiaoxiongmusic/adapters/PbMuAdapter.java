@@ -12,6 +12,7 @@ import com.beiing.xiaoxiongmusic.entities.ChannelMusician;
 import com.beiing.xiaoxiongmusic.entities.ChannelPublic;
 import com.beiing.xiaoxiongmusic.utils.FileUtil;
 import com.beiing.xxmusic.R;
+import com.bumptech.glide.Glide;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -59,7 +60,7 @@ public class PbMuAdapter extends BaseAdapter {
 			holder = new ViewHolder();
 			convertView = LayoutInflater.from(context).inflate(
 					R.layout.item_channel, parent, false);
-			holder.imageView = (RoundImageView) convertView
+			holder.imageView = (ImageView) convertView
 					.findViewById(R.id.item_channelPic);
 			holder.textView = (TextView) convertView
 					.findViewById(R.id.item_channelName);
@@ -74,38 +75,13 @@ public class PbMuAdapter extends BaseAdapter {
 		holder.textView.setText(chm.getName());
 		final String imgurl = chm.getAvatar();
 		if (imgurl != null) {
-			holder.imageView.setTag(imgurl);
-			Bitmap bitmap = XxMusicApplication.getBitMapCache()
-					.getBitmapFromMemoryCache(imgurl);
-			if (bitmap == null) {
-				bitmap = FileUtil.readImage(imgurl);
-				if (bitmap == null){
-					new ImageLoadAsyncTask(new LoadImageListner() {
-						@Override
-						public void imageLoadSuccess(Bitmap bitmap) {
-							ImageView head = (ImageView) gridView
-									.findViewWithTag(imgurl);
-							if (head != null)
-								head.setImageBitmap(bitmap);
-							// ���浽��չ��
-							try {
-								// ѹ������
-								FileUtil.saveImage(imgurl, bitmap,
-										FileUtil.FORMAT_PNG, 100, 100);
-							} catch (FileNotFoundException e) {
-								e.printStackTrace();
-							}
-						}
-					}).execute(imgurl);
-				}
-			}else
-				holder.imageView.setImageBitmap(bitmap);
+			Glide.with(context).load(imgurl).into(holder.imageView);
 		}
 		return convertView;
 	}
 
 	class ViewHolder {
-		RoundImageView imageView;
+		ImageView imageView;
 		TextView textView;
 
 	}
