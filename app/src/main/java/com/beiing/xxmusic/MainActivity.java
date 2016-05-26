@@ -57,9 +57,6 @@ public class MainActivity extends FragmentActivity implements
 		selectNav(0);
 	}
 
-	/**
-	 * �ײ�������ģ��ѡ���¼�
-	 */
 	private void modelClickEvent() {
 		TextView tv = null;
 		for (int i = 0; i < LlNav.getChildCount(); i++) {
@@ -75,11 +72,6 @@ public class MainActivity extends FragmentActivity implements
 		}
 	}
 
-	/**
-	 * ������ѡ��
-	 * 
-	 * @param position
-	 */
 	private void selectNav(int position) {
 		TextView tv = null;
 		for (int i = 0; i < LlNav.getChildCount(); i++) {
@@ -91,9 +83,6 @@ public class MainActivity extends FragmentActivity implements
 		}
 	}
 
-	/**
-	 * vPger�¼�����
-	 */
 	private void vPagerEvent() {
 		vPager.setOnPageChangeListener(new OnPageChangeListener() {
 
@@ -115,14 +104,10 @@ public class MainActivity extends FragmentActivity implements
 		});
 	}
 
-	/**
-	 * ��ʼ��
-	 */
 	private void initVPager() {
 		fragmentManager = getSupportFragmentManager();
 		vPager = (ViewPager) findViewById(R.id.main_vPager);
 		
-		//����ViewPager�л�����
 		vPager.setPageTransformer(true, new ZoomOutSlideTransformer());
 		
 		vPager.setOffscreenPageLimit(3);
@@ -143,14 +128,11 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	public void onPlayClick() {
-		// TODO ���Ž���������
-		// ���ŵ�һ��
 		onNextClick();
 	}
 
 	@Override
 	public void onNextClick() {
-		// TODO ���Ž�������һ��
 		if (localListFragment != null) {
 			localListFragment.playNextSong();
 		}
@@ -158,7 +140,6 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	public void onPrevClick() {
-		// TODO ���Ž�������һ��
 		if (localListFragment != null) {
 			localListFragment.playPrexSong();
 		}
@@ -166,13 +147,11 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	public void onCompleteSong() {
-		// TODO �Զ�������һ��
 		onNextClick();
 	}
 
 	@Override
 	public void onMusicPlay(SongDetail detail) {
-		// TODO �����ֲ��ţ����²��Ž���
 		if (nowPlayFragment != null)
 			nowPlayFragment.updatePlayUI(detail);
 	}
@@ -183,7 +162,7 @@ public class MainActivity extends FragmentActivity implements
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			if ((System.currentTimeMillis() - firstClickTime) > 2000) {
-				Toast.makeText(getApplicationContext(), "�ٰ�һ���˳�",
+				Toast.makeText(getApplicationContext(), "再按一次退出",
 						Toast.LENGTH_SHORT).show();
 				firstClickTime = System.currentTimeMillis();
 			} else {

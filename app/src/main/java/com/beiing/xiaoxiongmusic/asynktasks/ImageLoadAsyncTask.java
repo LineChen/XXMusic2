@@ -16,10 +16,6 @@ import com.beiing.xiaoxiongmusic.utils.HttpUtils;
 
 public class ImageLoadAsyncTask extends AsyncTask<String, Void, Bitmap> {
 
-	/**
-	 * ͼƵ���ؽӿ�
-	 *
-	 */
 	public interface LoadImageListner{
 		public void imageLoadSuccess(Bitmap bitmap);
 	}
@@ -42,11 +38,9 @@ public class ImageLoadAsyncTask extends AsyncTask<String, Void, Bitmap> {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			// �ں�̨��ʼ����ͼƬ
 			if(buffer != null){
 				bitmap = BitmapFactory.decodeByteArray(buffer, 0,
 						buffer.length);
-				// ���غú󱣴浽������
 				XxMusicApplication.getBitMapCache().addBitmapToMemoryCache(imageUrl, bitmap);
 			}
 		}
@@ -57,7 +51,6 @@ public class ImageLoadAsyncTask extends AsyncTask<String, Void, Bitmap> {
 	protected void onPostExecute(Bitmap bitmap) {
 		if(bitmap != null){
 			loadImageListner.imageLoadSuccess(bitmap);
-			//���浽����
 			XxMusicApplication.getBitMapCache().addBitmapToMemoryCache(imageUrl, bitmap);
 		}
 	}
